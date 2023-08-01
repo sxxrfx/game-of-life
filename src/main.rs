@@ -8,11 +8,11 @@ use raylib::prelude::*;
 
 const SCREEN_WIDTH: u32 = 800;
 const SCREEN_HEIGHT: u32 = 800;
-const GRID_WIDTH: u32 = 100;
-const GRID_HEIGHT: u32 = 100;
+const GRID_WIDTH: u32 = 80;
+const GRID_HEIGHT: u32 = 80;
 const CELL_WIDTH: u32 = SCREEN_WIDTH / GRID_WIDTH;
 const CELL_HEIGHT: u32 = SCREEN_HEIGHT / GRID_HEIGHT;
-const FPS: u32 = 60;
+const FPS: u32 = 30;
 
 const NO_OF_CELLS: usize = (GRID_HEIGHT * GRID_WIDTH) as usize;
 const GRID_LINE_THICKNESS: f32 = 1.0;
@@ -41,7 +41,7 @@ impl CellGrid {
 
     pub fn random_state(mut self) -> Self {
         for cell in self.iter_mut() {
-            if rand::thread_rng().gen_range(0..10) == 0 {
+            if rand::thread_rng().gen_range(0..3) == 0 {
                 *cell = CellState::Alive;
             }
         }
